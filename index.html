@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Olga Rivas ✦ Desarrolladora</title>
+<meta name="description" content="Portafolio de Olga Rivas Ahumada — Desarrolladora Java, Python, JavaScript, HTML y CSS. Estudiante de Analista Programador en Duoc UC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+/* ============ VARIABLES DE TEMA ============ */
+:root{
+  --px: 4px;
+}
+[data-theme="dark"]{
+  --bg: #1a1320;
+  --bg2: #251a2e;
+  --card: #2d2138;
+  --card2: #382a45;
+  --text: #f5e6f0;
+  --text-dim: #c4a8bc;
+  --pink: #ff9ed2;
+  --pink2: #f06daf;
+  --lav: #c9a7eb;
+  --mint: #a7ebd4;
+  --yellow: #ffe3a3;
+  --border: #4a3a58;
+  --shadow: #120d17;
+}
+[data-theme="light"]{
+  --bg: #fff0f6;
+  --bg2: #ffe4ef;
+  --card: #ffffff;
+  --card2: #fff7fb;
+  --text: #5a3a4d;
+  --text-dim: #9a7388;
+  --pink: #e85d9e;
+  --pink2: #d94f8c;
+  --lav: #9d6fd0;
+  --mint: #3eb489;
+  --yellow: #e8a93e;
+  --border: #ffc2dd;
+  --shadow: #f3cade;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'VT323',monospace;
+  font-size:22px;
+  line-height:1.5;
+  transition:background .4s,color .4s;
+  overflow-x:hidden;
+}
+
+/* fondo cuadriculado pixel */
+body::before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:32px 32px;
+  opacity:.15;
+}
+
+h1,h2,h3,.pixel{font-family:'Press Start 2P',monospace;line-height:1.6}
+
+/* ============ BORDE PIXELADO ============ */
+.pxborder{
+  position:relative;
+  border:var(--px) solid var(--border);
+  background:var(--card);
+  box-shadow:
+    var(--px) var(--px) 0 var(--shadow),
+    calc(var(--px)*2) calc(var(--px)*2) 0 var(--shadow);
+}
+.pxborder::before,.pxborder::after{
+  content:"";position:absolute;width:var(--px);height:var(--px);
+  background:var(--bg);
+}
+.pxborder::before{top:calc(var(--px)*-1);left:calc(var(--px)*-1)}
+.pxborder::after{top:calc(var(--px)*-1);right:calc(var(--px)*-1)}
+
+/* ============ NAV ============ */
+nav{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+  background:var(--bg2);
+  border-bottom:var(--px) solid var(--pink);
+}
+nav .logo{font-family:'Press Start 2P',monospace;font-size:14px;color:var(--pink);text-decoration:none}
+nav .logo .heart{color:var(--pink2)}
+.navlinks{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.navlinks a{
+  color:var(--text);text-decoration:none;font-size:22px;
+  padding:2px 8px;transition:.15s;
+}
+.navlinks a:hover{background:var(--pink);color:var(--bg);box-shadow:3px 3px 0 var(--shadow)}
+#themeBtn{
+  font-family:'Press Start 2P',monospace;font-size:12px;
+  background:var(--card);color:var(--text);
+  border:3px solid var(--pink);
+  padding:8px 12px;cursor:pointer;
+  box-shadow:3px 3px 0 var(--shadow);
+  transition:.15s;
+}
+#themeBtn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--shadow)}
+#themeBtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+
+/* ============ HERO ============ */
+.hero{
+  max-width:1000px;margin:0 auto;padding:80px 24px 60px;
+  display:flex;gap:48px;align-items:center;flex-wrap:wrap;justify-content:center;
+  text-align:left;
+}
+.avatar-wrap{position:relative;flex-shrink:0}
+.avatar{
+  width:220px;height:220px;object-fit:cover;
+  border:var(--px) solid var(--pink);
+  box-shadow:8px 8px 0 var(--shadow);
+  image-rendering:auto;
+  background:var(--card);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Press Start 2P',monospace;font-size:40px;color:var(--pink);
+}
+.avatar-wrap .sparkle{
+  position:absolute;font-size:28px;animation:float 2.5s ease-in-out infinite;
+}
+.sparkle.s1{top:-18px;right:-12px}
+.sparkle.s2{bottom:-10px;left:-18px;animation-delay:1.2s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.hero-text h1{font-size:clamp(20px,4vw,34px);color:var(--pink);margin-bottom:18px}
+.hero-text .sub{
+  font-size:26px;color:var(--text-dim);margin-bottom:10px;min-height:34px;
+}
+.hero-text .sub .cursor{
+  display:inline-block;width:12px;height:24px;background:var(--pink);
+  vertical-align:middle;animation:blink 1s steps(1) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.badge{
+  font-size:18px;padding:4px 12px;border:3px solid var(--border);
+  background:var(--card);box-shadow:3px 3px 0 var(--shadow);
+}
+.badge.b1{color:var(--pink)}
+.badge.b2{color:var(--lav)}
+.badge.b3{color:var(--mint)}
+.cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.btn{
+  font-family:'Press Start 2P',monospace;font-size:11px;
+  text-decoration:none;padding:14px 18px;cursor:pointer;
+  border:3px solid var(--pink);box-shadow:4px 4px 0 var(--shadow);
+  transition:.15s;display:inline-block;
+}
+.btn.primary{background:var(--pink);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--pink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--shadow)}
+.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+
+/* ============ SECCIONES ============ */
+section{max-width:1000px;margin:0 auto;padding:60px 24px}
+.sec-title{
+  font-size:clamp(16px,3vw,22px);color:var(--pink);margin-bottom:36px;
+  display:flex;align-items:center;gap:14px;
+}
+.sec-title::after{
+  content:"";flex:1;height:var(--px);
+  background:repeating-linear-gradient(90deg,var(--pink) 0 8px,transparent 8px 16px);
+}
+
+/* ============ SOBRE MÍ ============ */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.about-card{padding:28px;font-size:23px}
+.about-card p{margin-bottom:16px}
+.about-card .hl{color:var(--pink);font-weight:bold}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stat{padding:20px;text-align:center}
+.stat .num{font-family:'Press Start 2P',monospace;font-size:22px;color:var(--pink);display:block;margin-bottom:10px}
+.stat .lbl{font-size:19px;color:var(--text-dim)}
+
+/* barra de vida estilo RPG */
+.lifebar{margin-top:24px;padding:20px}
+.lifebar .row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.lifebar .row:last-child{margin-bottom:0}
+.lifebar .lbl{font-family:'Press Start 2P',monospace;font-size:9px;width:120px;flex-shrink:0}
+.bar{flex:1;height:18px;border:3px solid var(--border);background:var(--bg2);overflow:hidden}
+.bar .fill{height:100%;background:repeating-linear-gradient(90deg,var(--pink) 0 10px,var(--pink2) 10px 20px);width:0;transition:width 1.2s steps(12)}
+
+/* ============ PROYECTOS ============ */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:28px}
+.proj{
+  padding:24px;display:flex;flex-direction:column;gap:12px;
+  transition:.15s;opacity:0;transform:translateY(20px);
+}
+.proj.show{opacity:1;transform:translateY(0);transition:opacity .5s,transform .5s,box-shadow .15s,translate .15s}
+.proj:hover{translate:-3px -3px;box-shadow:7px 7px 0 var(--shadow),9px 9px 0 var(--shadow)}
+.proj h3{font-size:12px;color:var(--pink);word-break:break-word}
+.proj .icon{font-size:30px}
+.proj p{font-size:20px;color:var(--text-dim);flex:1}
+.tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:16px;padding:2px 10px;border:2px solid var(--border);color:var(--lav)}
+.tag.java{color:var(--yellow)}
+.tag.web{color:var(--mint)}
+.proj a{
+  font-family:'Press Start 2P',monospace;font-size:9px;
+  color:var(--pink);text-decoration:none;margin-top:6px;
+}
+.proj a:hover{text-decoration:underline}
+
+/* ============ SKILLS ============ */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.skill-col{padding:26px}
+.skill-col h3{font-size:12px;color:var(--lav);margin-bottom:20px}
+.skill{margin-bottom:16px}
+.skill .top{display:flex;justify-content:space-between;font-size:21px;margin-bottom:6px}
+.skill .pts{color:var(--pink);letter-spacing:2px}
+.soft{list-style:none}
+.soft li{margin-bottom:14px;font-size:21px;padding-left:30px;position:relative}
+.soft li::before{content:"♥";position:absolute;left:0;color:var(--pink)}
+
+/* ============ CONTACTO ============ */
+.contact-card{padding:36px;text-align:center}
+.contact-card p{font-size:24px;margin-bottom:26px;color:var(--text-dim)}
+.contact-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+
+/* ============ FOOTER ============ */
+footer{
+  text-align:center;padding:30px;border-top:var(--px) solid var(--pink);
+  background:var(--bg2);font-size:19px;color:var(--text-dim);
+}
+footer .pixel{font-size:10px;color:var(--pink);margin-top:8px}
+
+@media(max-width:760px){
+  .about,.skills-grid{grid-template-columns:1fr}
+  .hero{padding-top:50px;text-align:center;flex-direction:column}
+  .badges,.cta{justify-content:center}
+  nav{flex-direction:column;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#"><span class="heart">♥</span> OLGA.DEV</a>
+  <div class="navlinks">
+    <a href="#sobre-mi">Sobre mí</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="#habilidades">Habilidades</a>
+    <a href="#contacto">Contacto</a>
+    <button id="themeBtn" aria-label="Cambiar tema">☾ DARK</button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="avatar-wrap">
+    <!-- Para usar tu foto: guarda tu imagen como "foto.jpg" en esta misma carpeta -->
+    <img class="avatar pxborder" src="foto.jpg" alt="Olga Rivas" onerror="this.outerHTML='<div class=&quot;avatar pxborder&quot;>OR</div>'">
+    <span class="sparkle s1">✦</span>
+    <span class="sparkle s2">✧</span>
+  </div>
+  <div class="hero-text">
+    <h1>OLGA RIVAS</h1>
+    <div class="sub"><span id="typed"></span><span class="cursor"></span></div>
+    <div class="badges">
+      <span class="badge b1">📍 Iquique, Chile</span>
+      <span class="badge b2">🎓 Duoc UC</span>
+      <span class="badge b3">she/her</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos">VER PROYECTOS</a>
+      <a class="btn ghost" href="#contacto">CONTACTO</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ SOBRE MÍ ============ -->
+<section id="sobre-mi">
+  <h2 class="sec-title">★ SOBRE MÍ</h2>
+  <div class="about">
+    <div class="about-card pxborder">
+      <p>Soy <span class="hl">Olga Rivas Ahumada</span>, enfermera escolar en transición hacia el mundo de la tecnología. Actualmente estudio <span class="hl">Analista Programador Computacional en Duoc UC</span>, una decisión que nació de mi pasión por aprender y por los desafíos que ofrece el mundo IT.</p>
+      <p>Manejo <span class="hl">Java</span> en mi formación académica y por iniciativa propia he aprendido <span class="hl">Python, JavaScript, HTML y CSS</span>, porque creo que el aprendizaje autodidacta es una de las mejores señales de compromiso con una carrera.</p>
+      <p>Mi experiencia como enfermera escolar en el Colegio San Lorenzo de Tarapacá me dio algo que no se enseña en ningún aula: <span class="hl">responsabilidad real, comunicación efectiva y trabajo bajo presión</span>. Habilidades que hoy traigo conmigo al desarrollo.</p>
+    </div>
+    <div>
+      <div class="stat-grid">
+        <div class="stat pxborder"><span class="num">7</span><span class="lbl">proyectos en GitHub</span></div>
+        <div class="stat pxborder"><span class="num">5</span><span class="lbl">lenguajes y tecnologías</span></div>
+        <div class="stat pxborder"><span class="num">100%</span><span class="lbl">autodidacta en web</span></div>
+        <div class="stat pxborder"><span class="num">+∞</span><span class="lbl">ganas de aprender</span></div>
+      </div>
+      <div class="lifebar pxborder">
+        <div class="row"><span class="lbl">CURIOSIDAD</span><div class="bar"><div class="fill" data-w="100%"></div></div></div>
+        <div class="row"><span class="lbl">EMPATÍA</span><div class="bar"><div class="fill" data-w="95%"></div></div></div>
+        <div class="row"><span class="lbl">CAFÉ</span><div class="bar"><div class="fill" data-w="80%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROYECTOS ============ -->
+<section id="proyectos">
+  <h2 class="sec-title">★ PROYECTOS</h2>
+  <div class="projects">
+
+    <div class="proj pxborder">
+      <span class="icon">🗺️</span>
+      <h3>llanquihue-tour-app</h3>
+      <p>Sistema en Java para gestionar tours de la agencia Llanquihue Tour mediante lectura de archivos y colecciones (ArrayList). Desarrollo Orientado a Objetos I, Duoc UC.</p>
+      <div class="tags"><span class="tag java">Java</span><span class="tag">POO</span><span class="tag">ArrayList</span></div>
+      <a href="https://github.com/Milkysturm/llanquihue-tour-app" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+    <div class="proj pxborder">
+      <span class="icon">🏞️</span>
+      <h3>llanquihue-tour</h3>
+      <p>Sistema en Java que modela las personas vinculadas a la agencia de turismo aplicando encapsulamiento, composición y herencia.</p>
+      <div class="tags"><span class="tag java">Java</span><span class="tag">Herencia</span><span class="tag">POO</span></div>
+      <a href="https://github.com/Milkysturm/llanquihue-tour" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+    <div class="proj pxborder">
+      <span class="icon">⛽</span>
+      <h3>registro-consumo-bencina</h3>
+      <p>Sistema en Java para registrar y controlar el consumo de combustible.</p>
+      <div class="tags"><span class="tag java">Java</span></div>
+      <a href="https://github.com/Milkysturm/Sistema-de-registro-de-consumo-de-bencina" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+    <div class="proj pxborder">
+      <span class="icon">🛍️</span>
+      <h3>sistema-registro-compras</h3>
+      <p>Aplicación de escritorio con interfaz gráfica en Java Swing: una caja registradora para una boutique de aromas, con registro de productos por código.</p>
+      <div class="tags"><span class="tag java">Java</span><span class="tag">Swing</span><span class="tag">GUI</span></div>
+      <a href="https://github.com/Milkysturm/Sistema-de-Registro-de-Compras" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+    <div class="proj pxborder">
+      <span class="icon">🧮</span>
+      <h3>calculadora-web</h3>
+      <p>Calculadora web con modo oscuro, animaciones y soporte de teclado — HTML, CSS y JS puro.</p>
+      <div class="tags"><span class="tag web">HTML</span><span class="tag web">CSS</span><span class="tag web">JavaScript</span></div>
+      <a href="https://github.com/Milkysturm/calculadora-web" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+    <div class="proj pxborder">
+      <span class="icon">📚</span>
+      <h3>prestamos-biblioteca</h3>
+      <p>Sistema de gestión de préstamos de biblioteca con interfaz gráfica en Java Swing.</p>
+      <div class="tags"><span class="tag java">Java</span><span class="tag">Swing</span><span class="tag">GUI</span></div>
+      <a href="https://github.com/Milkysturm/prestamos-biblioteca" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+    <div class="proj pxborder">
+      <span class="icon">🎰</span>
+      <h3>ruleta-tipo-casino</h3>
+      <p>Ruleta aleatoria tipo casino: mi primer acercamiento a HTML, CSS y JS. Donde todo comenzó ✦</p>
+      <div class="tags"><span class="tag web">HTML</span><span class="tag web">CSS</span><span class="tag web">JavaScript</span></div>
+      <a href="https://github.com/Milkysturm/Ruleta-aleatoria-tipo-casino." target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ HABILIDADES ============ -->
+<section id="habilidades">
+  <h2 class="sec-title">★ HABILIDADES</h2>
+  <div class="skills-grid">
+    <div class="skill-col pxborder">
+      <h3>&lt;/&gt; TECNOLOGÍAS</h3>
+      <div class="skill"><div class="top"><span>Java</span><span class="pts">■■■■□</span></div></div>
+      <div class="skill"><div class="top"><span>HTML &amp; CSS</span><span class="pts">■■■■□</span></div></div>
+      <div class="skill"><div class="top"><span>JavaScript</span><span class="pts">■■■□□</span></div></div>
+      <div class="skill"><div class="top"><span>Python</span><span class="pts">■■■□□</span></div></div>
+      <div class="skill"><div class="top"><span>Git &amp; GitHub</span><span class="pts">■■■□□</span></div></div>
+    </div>
+    <div class="skill-col pxborder">
+      <h3>♥ HABILIDADES HUMANAS</h3>
+      <ul class="soft">
+        <li>Responsabilidad real — gestioné la salud de toda una comunidad escolar</li>
+        <li>Comunicación efectiva con personas de todas las edades</li>
+        <li>Trabajo bajo presión y toma de decisiones rápidas</li>
+        <li>Aprendizaje autodidacta constante</li>
+        <li>Empatía y trabajo en equipo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section id="contacto">
+  <h2 class="sec-title">★ CONTACTO</h2>
+  <div class="contact-card pxborder">
+    <p>¿Quieres trabajar conmigo o simplemente saludar? ¡Hablemos! ✦</p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:rivas.ahumada1509@gmail.com">✉ EMAIL</a>
+      <a class="btn ghost" href="https://github.com/Milkysturm" target="_blank" rel="noopener">⌨ GITHUB</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/olga-rivas-ahumada-b86403386/" target="_blank" rel="noopener">in LINKEDIN</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Hecho con ♥ y mucho café en Iquique, Chile
+  <div class="pixel">© 2026 OLGA RIVAS — PRESS START ▸</div>
+</footer>
+
+<script>
+// ===== Tema claro/oscuro (recuerda tu elección) =====
+const btn = document.getElementById('themeBtn');
+const root = document.documentElement;
+const saved = localStorage.getItem('tema');
+if(saved) root.dataset.theme = saved;
+updateBtn();
+btn.addEventListener('click', () => {
+  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('tema', root.dataset.theme);
+  updateBtn();
+});
+function updateBtn(){
+  btn.textContent = root.dataset.theme === 'dark' ? '☀ LIGHT' : '☾ DARK';
+}
+
+// ===== Efecto de escritura =====
+const frases = [
+  'Desarrolladora Java & Python',
+  'Front-end: HTML · CSS · JS',
+  'De enfermera a programadora',
+  'Estudiante en Duoc UC ✦'
+];
+const typed = document.getElementById('typed');
+let fi = 0, ci = 0, borrando = false;
+(function tick(){
+  const f = frases[fi];
+  typed.textContent = f.slice(0, ci);
+  if(!borrando){
+    if(ci++ === f.length){ borrando = true; return setTimeout(tick, 1800); }
+  } else {
+    if(ci-- === 0){ borrando = false; fi = (fi+1) % frases.length; }
+  }
+  setTimeout(tick, borrando ? 35 : 75);
+})();
+
+// ===== Animaciones al hacer scroll =====
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('show');
+      e.target.querySelectorAll('.fill').forEach(f => f.style.width = f.dataset.w);
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:.15});
+document.querySelectorAll('.proj').forEach(p => io.observe(p));
+document.querySelectorAll('.lifebar').forEach(l => io.observe(l));
+</script>
+</body>
+</html>
