@@ -1,386 +1,596 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="dark">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Olga Rivas ✦ Desarrolladora</title>
-<meta name="description" content="Portafolio de Olga Rivas Ahumada — Desarrolladora Java, Python, JavaScript, HTML y CSS. Estudiante de Analista Programador en Duoc UC.">
+<title>Milkysturm ✦ Portafolio</title>
+<meta name="description" content="Portafolio de Olga Rivas Ahumada — Desarrolladora Java, Python, JavaScript, HTML y CSS.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Courier+Prime&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* ============ VARIABLES DE TEMA ============ */
-:root{
-  --px: 4px;
-}
-[data-theme="dark"]{
-  --bg: #1a1320;
-  --bg2: #251a2e;
-  --card: #2d2138;
-  --card2: #382a45;
-  --text: #f5e6f0;
-  --text-dim: #c4a8bc;
-  --pink: #ff9ed2;
-  --pink2: #f06daf;
-  --lav: #c9a7eb;
-  --mint: #a7ebd4;
-  --yellow: #ffe3a3;
-  --border: #4a3a58;
-  --shadow: #120d17;
-}
-[data-theme="light"]{
-  --bg: #fff0f6;
-  --bg2: #ffe4ef;
-  --card: #ffffff;
-  --card2: #fff7fb;
-  --text: #5a3a4d;
-  --text-dim: #9a7388;
-  --pink: #e85d9e;
-  --pink2: #d94f8c;
-  --lav: #9d6fd0;
-  --mint: #3eb489;
-  --yellow: #e8a93e;
-  --border: #ffc2dd;
-  --shadow: #f3cade;
-}
-
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
+/* ===== TEMA CLARO / OSCURO ===== */
+:root{
+  --bg-grad: linear-gradient(160deg,#fce4f3 0%,#e8d8f8 30%,#d4ecff 60%,#fce4f3 100%);
+  --text: #5a3a5a;
+  --text-dim: #8a5c8a;
+  --text-soft: #6a4a6a;
+  --nav-bg: rgba(255,255,255,.6);
+  --nav-border: rgba(255,182,219,.5);
+  --win-bg: rgba(255,255,255,.75);
+  --win-border: rgba(255,182,219,.6);
+  --win-shadow: rgba(200,120,180,.18);
+  --btn-ghost-bg: rgba(255,255,255,.7);
+  --btn-ghost-border: rgba(220,120,180,.5);
+  --tech-bg: rgba(255,255,255,.6);
+  --tech-border: rgba(255,182,219,.5);
+  --footer-bg: rgba(255,255,255,.4);
+  --footer-border: rgba(255,182,219,.4);
+  --star-color: #d4a8e8;
+  --badge-bg: rgba(255,255,255,.65);
+  --badge-border: rgba(255,182,219,.6);
+  --blob-op: .55;
+}
+[data-theme="dark"]{
+  --bg-grad: linear-gradient(160deg,#1e0d2a 0%,#2a1040 30%,#0d1a2e 60%,#1e0d2a 100%);
+  --text: #f0d8f0;
+  --text-dim: #c8a0d0;
+  --text-soft: #d8b8d8;
+  --nav-bg: rgba(20,8,32,.75);
+  --nav-border: rgba(200,100,180,.35);
+  --win-bg: rgba(30,12,48,.8);
+  --win-border: rgba(200,100,180,.4);
+  --win-shadow: rgba(100,20,100,.35);
+  --btn-ghost-bg: rgba(40,16,60,.8);
+  --btn-ghost-border: rgba(200,100,180,.5);
+  --tech-bg: rgba(30,12,48,.7);
+  --tech-border: rgba(200,100,180,.35);
+  --footer-bg: rgba(20,8,32,.6);
+  --footer-border: rgba(200,100,180,.3);
+  --star-color: #e8b8ff;
+  --badge-bg: rgba(40,16,60,.7);
+  --badge-border: rgba(200,100,180,.4);
+  --blob-op: .3;
+}
+
+/* ===== FONDO DREAMY ===== */
 body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:'VT323',monospace;
-  font-size:22px;
-  line-height:1.5;
-  transition:background .4s,color .4s;
+  font-family:'Quicksand',sans-serif;
+  font-size:16px;
+  min-height:100vh;
+  background: var(--bg-grad);
   overflow-x:hidden;
-}
-
-/* fondo cuadriculado pixel */
-body::before{
-  content:"";
-  position:fixed;inset:0;z-index:-1;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size:32px 32px;
-  opacity:.15;
-}
-
-h1,h2,h3,.pixel{font-family:'Press Start 2P',monospace;line-height:1.6}
-
-/* ============ BORDE PIXELADO ============ */
-.pxborder{
+  color:var(--text);
   position:relative;
-  border:var(--px) solid var(--border);
-  background:var(--card);
-  box-shadow:
-    var(--px) var(--px) 0 var(--shadow),
-    calc(var(--px)*2) calc(var(--px)*2) 0 var(--shadow);
+  transition: background .4s, color .4s;
 }
-.pxborder::before,.pxborder::after{
-  content:"";position:absolute;width:var(--px);height:var(--px);
-  background:var(--bg);
-}
-.pxborder::before{top:calc(var(--px)*-1);left:calc(var(--px)*-1)}
-.pxborder::after{top:calc(var(--px)*-1);right:calc(var(--px)*-1)}
 
-/* ============ NAV ============ */
+/* Estrellas y destellos fijos en el fondo */
+.bg-layer{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  overflow:hidden;
+}
+.blob{
+  position:absolute;border-radius:50%;filter:blur(60px);opacity:var(--blob-op);
+  transition:opacity .4s;
+}
+/* gatos difuminados (círculos de color) */
+.blob.cat1{width:280px;height:280px;background:radial-gradient(#ffb347,#ff8c94);top:-60px;left:-60px}
+.blob.cat2{width:240px;height:240px;background:radial-gradient(#a0c4ff,#c8b6ff);top:-40px;right:-40px}
+.blob.cat3{width:200px;height:200px;background:radial-gradient(#ffc6e5,#ffb3c6);bottom:10%;left:-30px}
+.blob.cat4{width:180px;height:180px;background:radial-gradient(#b5ead7,#c7f2fa);bottom:5%;right:-20px}
+/* glow pastel central */
+.blob.glow1{width:500px;height:500px;background:radial-gradient(#f9d1f0,transparent);top:30%;left:50%;transform:translateX(-50%);opacity:.35}
+
+/* estrellas ✦ ✧ */
+.star{position:absolute;font-size:22px;color:var(--star-color);animation:twinkle 3s ease-in-out infinite;opacity:.7}
+@keyframes twinkle{0%,100%{opacity:.3;transform:scale(1)}50%{opacity:1;transform:scale(1.3)}}
+
+/* ===== NAV ===== */
 nav{
-  position:sticky;top:0;z-index:50;
+  position:sticky;top:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 24px;
-  background:var(--bg2);
-  border-bottom:var(--px) solid var(--pink);
+  padding:14px 28px;
+  background:var(--nav-bg);
+  backdrop-filter:blur(16px);
+  border-bottom:2px solid var(--nav-border);
+  transition:background .4s,border-color .4s;
 }
-nav .logo{font-family:'Press Start 2P',monospace;font-size:14px;color:var(--pink);text-decoration:none}
-nav .logo .heart{color:var(--pink2)}
-.navlinks{display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+.logo-nav{
+  font-family:'Dancing Script',cursive;font-size:28px;
+  color:#d472a8;text-decoration:none;
+}
+.navlinks{display:flex;gap:18px;align-items:center}
 .navlinks a{
-  color:var(--text);text-decoration:none;font-size:22px;
-  padding:2px 8px;transition:.15s;
+  font-size:15px;font-weight:600;color:var(--text-dim);text-decoration:none;
+  padding:4px 12px;border-radius:20px;transition:.2s;
 }
-.navlinks a:hover{background:var(--pink);color:var(--bg);box-shadow:3px 3px 0 var(--shadow)}
-#themeBtn{
-  font-family:'Press Start 2P',monospace;font-size:12px;
-  background:var(--card);color:var(--text);
-  border:3px solid var(--pink);
-  padding:8px 12px;cursor:pointer;
-  box-shadow:3px 3px 0 var(--shadow);
-  transition:.15s;
+.navlinks a:hover{background:rgba(255,182,219,.4);color:#c452a8}
+.nav-controls{display:flex;gap:8px;align-items:center}
+.ctrl-btn{
+  font-size:13px;font-weight:700;
+  padding:6px 14px;border-radius:20px;
+  border:2px solid var(--win-border);
+  background:var(--btn-ghost-bg);
+  color:var(--text-dim);cursor:pointer;transition:.2s;
+  font-family:'Quicksand',sans-serif;
 }
-#themeBtn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--shadow)}
-#themeBtn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+.ctrl-btn:hover{background:rgba(255,182,219,.3);color:#c452a8}
 
-/* ============ HERO ============ */
+/* ===== HERO ===== */
 .hero{
-  max-width:1000px;margin:0 auto;padding:80px 24px 60px;
-  display:flex;gap:48px;align-items:center;flex-wrap:wrap;justify-content:center;
-  text-align:left;
+  position:relative;z-index:1;
+  min-height:90vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;
+  padding:60px 24px 40px;
 }
-.avatar-wrap{position:relative;flex-shrink:0}
-.avatar{
-  width:220px;height:220px;object-fit:cover;
-  border:var(--px) solid var(--pink);
-  box-shadow:8px 8px 0 var(--shadow);
-  image-rendering:auto;
-  background:var(--card);
+.hero-text-top{
+  font-family:'Courier Prime',monospace;
+  font-size:28px;color:#b060a0;letter-spacing:2px;
+  margin-bottom:10px;
+  text-shadow:0 0 20px rgba(255,150,200,.5);
+}
+.hero-title{
+  font-family:'Dancing Script',cursive;font-size:clamp(50px,10vw,90px);
+  color:#c050a0;line-height:1.1;margin-bottom:6px;
+  text-shadow:2px 4px 20px rgba(200,100,180,.3);
+}
+.hero-sub{font-size:17px;color:#9a6a9a;margin-bottom:36px}
+
+/* ===== MARCO ESTRELLADO ===== */
+.pearl-frame-wrap{position:relative;display:inline-block;margin-bottom:36px}
+.pearl-ring{
+  position:relative;width:230px;height:230px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
   display:flex;align-items:center;justify-content:center;
-  font-family:'Press Start 2P',monospace;font-size:40px;color:var(--pink);
+  /* borde circular suave */
+  box-shadow:0 0 0 3px rgba(255,182,219,.5), 0 0 0 6px rgba(255,182,219,.15);
 }
-.avatar-wrap .sparkle{
-  position:absolute;font-size:28px;animation:float 2.5s ease-in-out infinite;
-}
-.sparkle.s1{top:-18px;right:-12px}
-.sparkle.s2{bottom:-10px;left:-18px;animation-delay:1.2s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.pearl-svg{position:absolute;inset:-36px;width:calc(100%+72px);height:calc(100%+72px);overflow:visible}
 
-.hero-text h1{font-size:clamp(20px,4vw,34px);color:var(--pink);margin-bottom:18px}
-.hero-text .sub{
-  font-size:26px;color:var(--text-dim);margin-bottom:10px;min-height:34px;
+/* estrellas del marco */
+.frame-star{
+  position:absolute;font-size:0px; /* tamaño por JS */
+  animation:starPulse 2s ease-in-out infinite;
+  pointer-events:none;
+  transform-origin:center;
 }
-.hero-text .sub .cursor{
-  display:inline-block;width:12px;height:24px;background:var(--pink);
-  vertical-align:middle;animation:blink 1s steps(1) infinite;
+@keyframes starPulse{
+  0%,100%{transform:scale(.6) rotate(0deg);opacity:.4;filter:drop-shadow(0 0 2px #f9b8e8)}
+  50%     {transform:scale(1.2) rotate(20deg);opacity:1;filter:drop-shadow(0 0 8px #ff80d0) drop-shadow(0 0 14px #e040a0)}
 }
-@keyframes blink{50%{opacity:0}}
-.badges{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
-.badge{
-  font-size:18px;padding:4px 12px;border:3px solid var(--border);
-  background:var(--card);box-shadow:3px 3px 0 var(--shadow);
+/* rotación orbital lenta del contenedor de estrellas */
+.star-orbit{
+  position:absolute;inset:-36px;
+  border-radius:50%;
+  animation:orbit 12s linear infinite;
 }
-.badge.b1{color:var(--pink)}
-.badge.b2{color:var(--lav)}
-.badge.b3{color:var(--mint)}
-.cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+@keyframes orbit{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+.avatar{
+  width:200px;height:200px;border-radius:50%;
+  object-fit:cover;object-position:center top;
+  border:5px solid rgba(255,255,255,.8);
+  box-shadow:0 8px 32px rgba(200,100,180,.25);
+}
+.avatar-fallback{
+  width:200px;height:200px;border-radius:50%;
+  background:linear-gradient(135deg,#fce4f3,#e8d8f8);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Dancing Script',cursive;font-size:50px;color:#c050a0;
+}
+/* lazos decorativos */
+.bow{position:absolute;font-size:28px}
+.bow.bl{bottom:10px;left:-10px}
+.bow.br{bottom:10px;right:-10px}
+
+.hero-badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:28px}
+.hbadge{
+  font-size:14px;
+  padding:6px 16px;border-radius:20px;
+  background:var(--badge-bg);
+  border:1.5px solid var(--badge-border);
+  backdrop-filter:blur(8px);
+  color:var(--text-dim);font-weight:600;
+  transition:background .4s,border-color .4s,color .4s;
+}
+.hero-btns{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
 .btn{
-  font-family:'Press Start 2P',monospace;font-size:11px;
-  text-decoration:none;padding:14px 18px;cursor:pointer;
-  border:3px solid var(--pink);box-shadow:4px 4px 0 var(--shadow);
-  transition:.15s;display:inline-block;
+  font-size:14px;font-weight:700;
+  padding:12px 28px;border-radius:30px;cursor:pointer;
+  text-decoration:none;transition:.2s;border:none;
+  display:inline-block;
 }
-.btn.primary{background:var(--pink);color:var(--bg)}
-.btn.ghost{background:transparent;color:var(--pink)}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--shadow)}
-.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+.btn.primary{
+  background:linear-gradient(135deg,#e878c4,#c050a0);
+  color:#fff;
+  box-shadow:0 4px 20px rgba(200,80,160,.35);
+}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,80,160,.5)}
+.btn.ghost{
+  background:var(--btn-ghost-bg);
+  color:#c050a0;border:2px solid var(--btn-ghost-border);
+  backdrop-filter:blur(8px);
+  transition:background .4s,border-color .4s;
+}
+.btn.ghost:hover{background:rgba(255,182,219,.25);transform:translateY(-2px)}
 
-/* ============ SECCIONES ============ */
-section{max-width:1000px;margin:0 auto;padding:60px 24px}
+/* ===== VENTANA WINDOWS KAWAII ===== */
+.win{
+  background:var(--win-bg);
+  backdrop-filter:blur(16px);
+  border-radius:14px;
+  border:2px solid var(--win-border);
+  box-shadow:0 8px 32px var(--win-shadow), inset 0 1px 0 rgba(255,255,255,.1);
+  overflow:hidden;
+  transition:background .4s,border-color .4s;
+}
+.win-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 14px;
+  background:linear-gradient(90deg,#f0b8da,#d8a0e8,#b0c8f8);
+  border-bottom:1px solid rgba(255,255,255,.4);
+}
+.win-title{font-size:13px;font-weight:700;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.2)}
+.win-btns{display:flex;gap:6px}
+.win-btns span{
+  width:14px;height:14px;border-radius:50%;
+  background:rgba(255,255,255,.5);
+  display:inline-block;font-size:8px;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(0,0,0,.3);
+}
+.win-body{padding:20px 24px}
+
+/* ===== SECCIONES ===== */
+section{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:60px 24px}
 .sec-title{
-  font-size:clamp(16px,3vw,22px);color:var(--pink);margin-bottom:36px;
-  display:flex;align-items:center;gap:14px;
-}
-.sec-title::after{
-  content:"";flex:1;height:var(--px);
-  background:repeating-linear-gradient(90deg,var(--pink) 0 8px,transparent 8px 16px);
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(36px,6vw,52px);color:#c050a0;
+  text-align:center;margin-bottom:36px;
+  text-shadow:0 2px 16px rgba(200,80,160,.2);
 }
 
-/* ============ SOBRE MÍ ============ */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
-.about-card{padding:28px;font-size:23px}
-.about-card p{margin-bottom:16px}
-.about-card .hl{color:var(--pink);font-weight:bold}
-.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.stat{padding:20px;text-align:center}
-.stat .num{font-family:'Press Start 2P',monospace;font-size:22px;color:var(--pink);display:block;margin-bottom:10px}
-.stat .lbl{font-size:19px;color:var(--text-dim)}
-
-/* barra de vida estilo RPG */
-.lifebar{margin-top:24px;padding:20px}
-.lifebar .row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.lifebar .row:last-child{margin-bottom:0}
-.lifebar .lbl{font-family:'Press Start 2P',monospace;font-size:9px;width:120px;flex-shrink:0}
-.bar{flex:1;height:18px;border:3px solid var(--border);background:var(--bg2);overflow:hidden}
-.bar .fill{height:100%;background:repeating-linear-gradient(90deg,var(--pink) 0 10px,var(--pink2) 10px 20px);width:0;transition:width 1.2s steps(12)}
-
-/* ============ PROYECTOS ============ */
-.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:28px}
-.proj{
-  padding:24px;display:flex;flex-direction:column;gap:12px;
-  transition:.15s;opacity:0;transform:translateY(20px);
+/* ===== SOBRE MÍ ===== */
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:start}
+.profile-card{padding:28px;text-align:center}
+.profile-name{
+  font-family:'Dancing Script',cursive;font-size:34px;color:#c050a0;margin-bottom:6px;
 }
-.proj.show{opacity:1;transform:translateY(0);transition:opacity .5s,transform .5s,box-shadow .15s,translate .15s}
-.proj:hover{translate:-3px -3px;box-shadow:7px 7px 0 var(--shadow),9px 9px 0 var(--shadow)}
-.proj h3{font-size:12px;color:var(--pink);word-break:break-word}
-.proj .icon{font-size:30px}
-.proj p{font-size:20px;color:var(--text-dim);flex:1}
-.tags{display:flex;gap:8px;flex-wrap:wrap}
-.tag{font-size:16px;padding:2px 10px;border:2px solid var(--border);color:var(--lav)}
-.tag.java{color:var(--yellow)}
-.tag.web{color:var(--mint)}
-.proj a{
-  font-family:'Press Start 2P',monospace;font-size:9px;
-  color:var(--pink);text-decoration:none;margin-top:6px;
+.profile-stars{font-size:22px;color:#d4a8e8;margin-bottom:16px;letter-spacing:4px}
+.mini-avatar-wrap{position:relative;display:inline-block;margin-bottom:18px}
+.mini-avatar{
+  width:160px;height:160px;border-radius:50%;object-fit:cover;object-position:center top;
+  border:4px solid rgba(255,255,255,.9);
+  box-shadow:0 6px 24px rgba(200,100,180,.2);
 }
-.proj a:hover{text-decoration:underline}
+.mini-fallback{
+  width:160px;height:160px;border-radius:50%;
+  background:linear-gradient(135deg,#fce4f3,#e8d8f8);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:'Dancing Script',cursive;font-size:40px;color:#c050a0;
+}
+.mini-bow{position:absolute;font-size:22px}
+.mini-bow.l{bottom:8px;left:-8px}
+.mini-bow.r{bottom:8px;right:-8px}
 
-/* ============ SKILLS ============ */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-.skill-col{padding:26px}
-.skill-col h3{font-size:12px;color:var(--lav);margin-bottom:20px}
-.skill{margin-bottom:16px}
-.skill .top{display:flex;justify-content:space-between;font-size:21px;margin-bottom:6px}
-.skill .pts{color:var(--pink);letter-spacing:2px}
-.soft{list-style:none}
-.soft li{margin-bottom:14px;font-size:21px;padding-left:30px;position:relative}
-.soft li::before{content:"♥";position:absolute;left:0;color:var(--pink)}
+.info-win{margin-top:0}
+.info-row{display:flex;align-items:center;gap:10px;font-size:14px;color:#8a5c8a;font-weight:600}
+.info-row + .info-row{margin-top:8px}
 
-/* ============ CONTACTO ============ */
-.contact-card{padding:36px;text-align:center}
-.contact-card p{font-size:24px;margin-bottom:26px;color:var(--text-dim)}
-.contact-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.about-text{font-size:15px;line-height:1.8;color:var(--text-soft)}
+.about-text p + p{margin-top:14px}
+.about-hl{color:#c050a0;font-weight:700}
 
-/* ============ FOOTER ============ */
+/* ===== TECNOLOGÍAS ===== */
+.tech-section{text-align:center}
+.tech-logo-wrap{margin-bottom:36px}
+.tech-logo{
+  display:inline-block;
+  font-family:'Dancing Script',cursive;font-size:32px;
+  color:#e060c0;
+  padding:14px 36px;
+  border:4px solid #e878c4;border-radius:50px;
+  background:rgba(255,255,255,.6);
+  backdrop-filter:blur(8px);
+  position:relative;
+  box-shadow:0 4px 20px rgba(220,100,180,.2);
+}
+.tech-logo::before,.tech-logo::after{
+  content:"✦";position:absolute;top:50%;transform:translateY(-50%);
+  font-size:22px;color:#e878c4;font-family:sans-serif;
+}
+.tech-logo::before{left:-32px}
+.tech-logo::after{right:-32px}
+
+.tech-list{
+  display:flex;flex-direction:column;gap:14px;max-width:400px;margin:0 auto;
+  font-family:'Courier Prime',monospace;font-size:22px;
+  letter-spacing:3px;color:#8a4a8a;
+}
+.tech-item{
+  padding:14px 28px;
+  background:var(--tech-bg);backdrop-filter:blur(10px);
+  border-radius:12px;border:1.5px solid var(--tech-border);
+  transition:.2s;font-weight:600;
+  color:var(--text-dim);
+}
+.tech-item:hover{background:rgba(255,182,219,.25);transform:translateX(6px)}
+
+/* ===== PROYECTOS ===== */
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:22px}
+.proj{padding:0;transition:.2s;cursor:default}
+.proj:hover{transform:translateY(-4px)}
+.proj-body{padding:20px 22px}
+.proj-icon{font-size:32px;margin-bottom:10px}
+.proj-name{
+  font-family:'Dancing Script',cursive;font-size:22px;
+  color:#c050a0;margin-bottom:8px;
+}
+.proj-desc{font-size:14px;color:var(--text-soft);line-height:1.6;margin-bottom:14px}
+.proj-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.ptag{
+  font-size:12px;font-weight:700;padding:3px 12px;border-radius:12px;
+  background:rgba(255,182,219,.3);color:#b050a0;
+  border:1px solid rgba(255,182,219,.5);
+}
+.ptag.java{background:rgba(255,220,150,.4);color:#a07020;border-color:rgba(255,200,100,.4)}
+.ptag.web{background:rgba(160,220,255,.35);color:#1a70a0;border-color:rgba(150,210,255,.4)}
+.proj-link{
+  font-size:13px;font-weight:700;color:#c050a0;text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.proj-link:hover{text-decoration:underline}
+
+/* ===== HABILIDADES HUMANAS ===== */
+.soft-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.soft-item{
+  padding:20px;display:flex;align-items:flex-start;gap:14px;
+}
+.soft-icon{font-size:28px;flex-shrink:0}
+.soft-item h4{font-size:15px;font-weight:700;color:#c050a0;margin-bottom:4px}
+.soft-item p{font-size:14px;color:var(--text-soft);line-height:1.6}
+
+/* ===== CONTACTO ===== */
+.contact-card{padding:40px;text-align:center}
+.contact-card p{font-size:17px;color:#8a5c8a;margin-bottom:28px}
+.contact-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ===== FOOTER ===== */
 footer{
-  text-align:center;padding:30px;border-top:var(--px) solid var(--pink);
-  background:var(--bg2);font-size:19px;color:var(--text-dim);
+  position:relative;z-index:1;
+  text-align:center;padding:28px;
+  background:var(--footer-bg);backdrop-filter:blur(10px);
+  border-top:1.5px solid var(--footer-border);
+  font-size:14px;color:var(--text-dim);
+  transition:background .4s,border-color .4s,color .4s;
 }
-footer .pixel{font-size:10px;color:var(--pink);margin-top:8px}
+footer .cursive{
+  font-family:'Dancing Script',cursive;font-size:20px;color:#c050a0;
+  display:block;margin-top:6px;
+}
 
-@media(max-width:760px){
-  .about,.skills-grid{grid-template-columns:1fr}
-  .hero{padding-top:50px;text-align:center;flex-direction:column}
-  .badges,.cta{justify-content:center}
-  nav{flex-direction:column;gap:12px}
+/* fade-in al scroll */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s}
+.reveal.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:700px){
+  .about-grid,.soft-grid{grid-template-columns:1fr}
+  nav{flex-direction:column;gap:10px}
 }
 </style>
 </head>
 <body>
 
+<!-- FONDO -->
+<div class="bg-layer">
+  <div class="blob cat1"></div>
+  <div class="blob cat2"></div>
+  <div class="blob cat3"></div>
+  <div class="blob cat4"></div>
+  <div class="blob glow1"></div>
+  <span class="star" style="top:12%;left:8%;animation-delay:0s">✦</span>
+  <span class="star" style="top:18%;right:12%;animation-delay:.7s">✧</span>
+  <span class="star" style="top:45%;left:3%;animation-delay:1.4s;font-size:14px">★</span>
+  <span class="star" style="top:60%;right:6%;animation-delay:.3s">✦</span>
+  <span class="star" style="top:80%;left:15%;animation-delay:1s;font-size:16px">✧</span>
+  <span class="star" style="top:75%;right:20%;animation-delay:2s">★</span>
+  <span class="star" style="top:35%;left:92%;animation-delay:1.7s;font-size:12px">✦</span>
+</div>
+
+<!-- NAV -->
 <nav>
-  <a class="logo" href="#"><span class="heart">♥</span> MILKYSTURM</a>
+  <a class="logo-nav" href="#">✦ Milkysturm</a>
   <div class="navlinks">
-    <a href="#sobre-mi">Sobre mí</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="#habilidades">Habilidades</a>
-    <a href="#contacto">Contacto</a>
-    <button id="themeBtn" aria-label="Cambiar tema">☾ DARK</button>
+    <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+    <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+    <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+    <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+  </div>
+  <div class="nav-controls">
+    <button class="ctrl-btn" id="langBtn">EN</button>
+    <button class="ctrl-btn" id="themeBtn">🌙</button>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
+<!-- HERO -->
 <header class="hero">
-  <div class="avatar-wrap">
-    <!-- Para usar tu foto: guarda tu imagen como "foto.jpg" en esta misma carpeta -->
-    <img class="avatar pxborder" src="foto.jpg" alt="Olga Rivas" onerror="this.outerHTML='<div class=&quot;avatar pxborder&quot;>OR</div>'">
-    <span class="sparkle s1">✦</span>
-    <span class="sparkle s2">✧</span>
+  <p class="hero-text-top">Hello, world! ✦</p>
+  <h1 class="hero-title" data-i18n="hero.title">Portafolio</h1>
+  <p class="hero-sub">by Milkysturm</p>
+
+  <div class="pearl-frame-wrap">
+    <div class="pearl-ring">
+      <!-- estrellas orbitales generadas por JS -->
+      <div class="star-orbit" id="starOrbit"></div>
+      <img class="avatar" src="foto.jpg" alt="Olga Rivas"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+      <div class="avatar-fallback" style="display:none">✦</div>
+    </div>
+    <span class="bow bl">🎀</span>
+    <span class="bow br">🎀</span>
   </div>
-  <div class="hero-text">
-    <h1>OLGA RIVAS</h1>
-    <div class="sub"><span id="typed"></span><span class="cursor"></span></div>
-    <div class="badges">
-      <span class="badge b1">📍 Iquique, Chile</span>
-      <span class="badge b2">🎓 Duoc UC, Analista Programador Computacional.</span>
-      <span class="badge b3">she/her</span>
-    </div>
-    <div class="cta">
-      <a class="btn primary" href="#proyectos">VER PROYECTOS</a>
-      <a class="btn ghost" href="#contacto">CONTACTO</a>
-    </div>
+
+  <div class="hero-badges">
+    <span class="hbadge">📍 Iquique, Chile</span>
+    <span class="hbadge">👩🏻‍💻 <span data-i18n="hero.badge">Analista Programador, Duoc UC</span></span>
+    <span class="hbadge">she/her</span>
+  </div>
+  <div class="hero-btns">
+    <a class="btn primary" href="#proyectos" data-i18n="hero.cta1">Ver proyectos ✦</a>
+    <a class="btn ghost" href="#contacto" data-i18n="hero.cta2">Contacto</a>
   </div>
 </header>
 
 <!-- ============ SOBRE MÍ ============ -->
 <section id="sobre-mi">
-  <h2 class="sec-title">★ SOBRE MÍ</h2>
-  <div class="about">
-    <div class="about-card pxborder">
-      <p>Soy <span class="hl">Olga Rivas Ahumada</span>, enfermera escolar en transición hacia el mundo de la tecnología. Actualmente estudio <span class="hl">Analista Programador Computacional en Duoc UC</span>, una decisión que nació de mi pasión por aprender y por los desafíos que ofrece el mundo IT.</p>
-      <p>Manejo <span class="hl">Java</span> en mi formación académica y por iniciativa propia he aprendido <span class="hl">Python, JavaScript, HTML y CSS</span>, porque creo que el aprendizaje autodidacta es una de las mejores señales de compromiso con una carrera.</p>
-      <p>Mi experiencia como enfermera escolar en el Colegio San Lorenzo de Tarapacá me dio algo que no se enseña en ningún aula: <span class="hl">responsabilidad real, comunicación efectiva y trabajo bajo presión</span>. Habilidades que hoy traigo conmigo al desarrollo.</p>
+  <h2 class="sec-title reveal" data-i18n="about.title">Sobre mí</h2>
+  <div class="about-grid reveal">
+    <!-- perfil card -->
+    <div class="win profile-card">
+      <div class="win-bar">
+        <span class="win-title">✦ Milkysturm</span>
+        <div class="win-btns"><span>─</span><span>□</span><span>✕</span></div>
+      </div>
+      <div class="win-body">
+        <div class="profile-stars">☆ ☆ ☆</div>
+        <div class="mini-avatar-wrap">
+          <img class="mini-avatar" src="foto.jpg" alt="Olga"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex'">
+          <div class="mini-fallback" style="display:none">✦</div>
+          <span class="mini-bow l">🎀</span>
+          <span class="mini-bow r">🎀</span>
+        </div>
+        <div class="win info-win">
+          <div class="win-bar">
+            <span class="win-title">Info</span>
+            <div class="win-btns"><span>─</span><span>□</span><span>✕</span></div>
+          </div>
+          <div class="win-body">
+            <div class="info-row">📍 Iquique, Chile</div>
+            <div class="info-row">👩🏻‍💻 Analista Programador, Duoc UC</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div>
-      <div class="stat-grid">
-        <div class="stat pxborder"><span class="num">8</span><span class="lbl">proyectos en GitHub</span></div>
-        <div class="stat pxborder"><span class="num">5</span><span class="lbl">lenguajes y tecnologías</span></div>
-        <div class="stat pxborder"><span class="num">100%</span><span class="lbl">autodidacta en web</span></div>
-        <div class="stat pxborder"><span class="num">+∞</span><span class="lbl">ganas de aprender</span></div>
+
+    <!-- texto sobre mí -->
+    <div class="win">
+      <div class="win-bar">
+        <span class="win-title" data-i18n="about.title">Sobre mí</span> <span style="color:#fff"> ✦</span>
+        <div class="win-btns"><span>─</span><span>□</span><span>✕</span></div>
       </div>
-      <div class="lifebar pxborder">
-        <div class="row"><span class="lbl">🌷</span><div class="bar"><div class="fill" data-w="100%"></div></div></div>
-        <div class="row"><span class="lbl">🧸</span><div class="bar"><div class="fill" data-w="95%"></div></div></div>
-        <div class="row"><span class="lbl">☕️</span><div class="bar"><div class="fill" data-w="80%"></div></div></div>
+      <div class="win-body about-text">
+        <p data-i18n="about.p1">Soy <span class="about-hl">Olga Rivas Ahumada</span>, enfermera escolar en transición hacia el mundo de la tecnología. Actualmente estudio <span class="about-hl">Analista Programador Computacional en Duoc UC</span>, una decisión que nació de mi pasión por aprender y por los desafíos que ofrece el mundo IT.</p>
+        <p data-i18n="about.p2">Manejo <span class="about-hl">Java</span> en mi formación académica y por iniciativa propia he aprendido <span class="about-hl">Python, JavaScript, HTML y CSS</span>, porque creo que el aprendizaje autodidacta es una de las mejores señales de compromiso con una carrera.</p>
+        <p data-i18n="about.p3">Mi experiencia como enfermera escolar en el Colegio San Lorenzo de Tarapacá me dio algo que no se enseña en ningún aula: <span class="about-hl">responsabilidad real, comunicación efectiva y trabajo bajo presión</span>. Habilidades que hoy traigo conmigo al desarrollo.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECNOLOGÍAS ============ -->
+<section id="tecnologias" style="padding-top:20px">
+  <div class="tech-section reveal">
+    <div class="tech-logo-wrap">
+      <span class="tech-logo">&lt;/&gt; <span data-i18n="tech.title">Tecnologías</span></span>
+    </div>
+    <div class="tech-list">
+      <div class="tech-item">Java</div>
+      <div class="tech-item">HTML &amp; CSS</div>
+      <div class="tech-item">JavaScript</div>
+      <div class="tech-item">Python</div>
+      <div class="tech-item">Git &amp; GitHub</div>
     </div>
   </div>
 </section>
 
 <!-- ============ PROYECTOS ============ -->
 <section id="proyectos">
-  <h2 class="sec-title">★ PROYECTOS</h2>
+  <h2 class="sec-title reveal" data-i18n="nav.projects">Proyectos</h2>
   <div class="projects">
 
-    <div class="proj pxborder">
-      <span class="icon">🗺️</span>
-      <h3>llanquihue-tour-app</h3>
-      <p>Sistema en Java para gestionar tours de la agencia Llanquihue Tour mediante lectura de archivos y colecciones (ArrayList). Desarrollo Orientado a Objetos I, Duoc UC.</p>
-      <div class="tags"><span class="tag java">Java</span><span class="tag">POO</span><span class="tag">ArrayList</span></div>
-      <a href="https://github.com/Milkysturm/llanquihue-tour-app" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">llanquihue-tour-app</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">🗺️</div>
+        <div class="proj-name">Llanquihue Tour App</div>
+        <p class="proj-desc" data-i18n="proj.tour_app">Sistema en Java para gestionar tours mediante lectura de archivos y colecciones (ArrayList). Actividad de Desarrollo Orientado a Objetos I, Duoc UC.</p>
+        <div class="proj-tags"><span class="ptag java">Java</span><span class="ptag">POO</span><span class="ptag">ArrayList</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/llanquihue-tour-app" target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
-    <div class="proj pxborder">
-      <span class="icon">🍅</span>
-      <h3>Pomodoro-App</h3>
-      <p>App Pomodoro personalizable construida con React + Vite: temporizador configurable para sesiones de enfoque y descansos.</p>
-      <div class="tags"><span class="tag">React</span><span class="tag">Vite</span><span class="tag">JavaScript</span></div>
-      <a href="https://github.com/Milkysturm/Pomodoro-App" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">llanquihue-tour</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">🏞️</div>
+        <div class="proj-name">Llanquihue Tour</div>
+        <p class="proj-desc" data-i18n="proj.tour">Sistema en Java que modela personas de una agencia de turismo aplicando encapsulamiento, composición y herencia.</p>
+        <div class="proj-tags"><span class="ptag java">Java</span><span class="ptag">Herencia</span><span class="ptag">POO</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/llanquihue-tour" target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
-    <div class="proj pxborder">
-      <span class="icon">🏞️</span>
-      <h3>llanquihue-tour</h3>
-      <p>Sistema en Java que modela las personas vinculadas a la agencia de turismo aplicando encapsulamiento, composición y herencia.</p>
-      <div class="tags"><span class="tag java">Java</span><span class="tag">Herencia</span><span class="tag">POO</span></div>
-      <a href="https://github.com/Milkysturm/llanquihue-tour" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">registro-bencina</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">⛽</div>
+        <div class="proj-name">Registro de Bencina</div>
+        <p class="proj-desc" data-i18n="proj.gas">Sistema en Java para registrar y controlar el consumo de combustible.</p>
+        <div class="proj-tags"><span class="ptag java">Java</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/Sistema-de-registro-de-consumo-de-bencina" target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
-    <div class="proj pxborder">
-      <span class="icon">📔</span>
-      <h3>modelo-diario-personal</h3>
-      <p>Maqueta de un diario personal construida solo con HTML, aplicando estructura semántica para organizar entradas y secciones.</p>
-      <div class="tags"><span class="tag">HTML</span><span class="tag">Semántica</span></div>
-      <a href="https://github.com/Milkysturm/Modelo-diario-personal" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">registro-compras</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">🛍️</div>
+        <div class="proj-name">Registro de Compras</div>
+        <p class="proj-desc" data-i18n="proj.shop">App de escritorio con Java Swing: caja registradora para boutique de aromas. Los usuarios registran productos con su código.</p>
+        <div class="proj-tags"><span class="ptag java">Java</span><span class="ptag">Swing</span><span class="ptag">GUI</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/Sistema-de-Registro-de-Compras" target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
-    <div class="proj pxborder">
-      <span class="icon">⛽</span>
-      <h3>registro-consumo-bencina</h3>
-      <p>Sistema en Java para registrar y controlar el consumo de combustible.</p>
-      <div class="tags"><span class="tag java">Java</span></div>
-      <a href="https://github.com/Milkysturm/Sistema-de-registro-de-consumo-de-bencina" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">calculadora-web</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">🧮</div>
+        <div class="proj-name">Calculadora Web</div>
+        <p class="proj-desc" data-i18n="proj.calc">Calculadora web con modo oscuro, animaciones y soporte de teclado — HTML, CSS y JS puro.</p>
+        <div class="proj-tags"><span class="ptag web">HTML</span><span class="ptag web">CSS</span><span class="ptag web">JavaScript</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/calculadora-web" target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
-    <div class="proj pxborder">
-      <span class="icon">🛍️</span>
-      <h3>sistema-registro-compras</h3>
-      <p>Aplicación de escritorio con interfaz gráfica en Java Swing: una caja registradora para una boutique de aromas, con registro de productos por código.</p>
-      <div class="tags"><span class="tag java">Java</span><span class="tag">Swing</span><span class="tag">GUI</span></div>
-      <a href="https://github.com/Milkysturm/Sistema-de-Registro-de-Compras" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">prestamos-biblioteca</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">📚</div>
+        <div class="proj-name">Préstamos Biblioteca</div>
+        <p class="proj-desc" data-i18n="proj.lib">Sistema de gestión de préstamos de biblioteca con interfaz gráfica en Java Swing.</p>
+        <div class="proj-tags"><span class="ptag java">Java</span><span class="ptag">Swing</span><span class="ptag">GUI</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/prestamos-biblioteca" target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
-    <div class="proj pxborder">
-      <span class="icon">🧮</span>
-      <h3>calculadora-web</h3>
-      <p>Calculadora web con modo oscuro, animaciones y soporte de teclado — HTML, CSS y JS puro.</p>
-      <div class="tags"><span class="tag web">HTML</span><span class="tag web">CSS</span><span class="tag web">JavaScript</span></div>
-      <a href="https://github.com/Milkysturm/calculadora-web" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
-    </div>
-
-    <div class="proj pxborder">
-      <span class="icon">📚</span>
-      <h3>prestamos-biblioteca</h3>
-      <p>Sistema de gestión de préstamos de biblioteca con interfaz gráfica en Java Swing.</p>
-      <div class="tags"><span class="tag java">Java</span><span class="tag">Swing</span><span class="tag">GUI</span></div>
-      <a href="https://github.com/Milkysturm/prestamos-biblioteca" target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
-    </div>
-
-    <div class="proj pxborder">
-      <span class="icon">🎰</span>
-      <h3>ruleta-tipo-casino</h3>
-      <p>Ruleta aleatoria tipo casino: mi primer acercamiento a HTML, CSS y JS. Donde todo comenzó ✦</p>
-      <div class="tags"><span class="tag web">HTML</span><span class="tag web">CSS</span><span class="tag web">JavaScript</span></div>
-      <a href="https://github.com/Milkysturm/Ruleta-aleatoria-tipo-casino." target="_blank" rel="noopener">&gt; VER EN GITHUB</a>
+    <div class="win proj reveal">
+      <div class="win-bar"><span class="win-title">ruleta-casino</span><div class="win-btns"><span>─</span><span>□</span><span>✕</span></div></div>
+      <div class="proj-body">
+        <div class="proj-icon">🎰</div>
+        <div class="proj-name">Ruleta Tipo Casino</div>
+        <p class="proj-desc" data-i18n="proj.roulette">Primer acercamiento a HTML, CSS y JS. Donde todo comenzó ✦</p>
+        <div class="proj-tags"><span class="ptag web">HTML</span><span class="ptag web">CSS</span><span class="ptag web">JavaScript</span></div>
+        <a class="proj-link" href="https://github.com/Milkysturm/Ruleta-aleatoria-tipo-casino." target="_blank" rel="noopener">Ver en GitHub →</a>
+      </div>
     </div>
 
   </div>
@@ -388,95 +598,244 @@ footer .pixel{font-size:10px;color:var(--pink);margin-top:8px}
 
 <!-- ============ HABILIDADES ============ -->
 <section id="habilidades">
-  <h2 class="sec-title">★ HABILIDADES</h2>
-  <div class="skills-grid">
-    <div class="skill-col pxborder">
-      <h3>&lt;/&gt; TECNOLOGÍAS</h3>
-      <div class="skill"><div class="top"><span>Java</span><span class="pts">■■■■□</span></div></div>
-      <div class="skill"><div class="top"><span>HTML &amp; CSS</span><span class="pts">■■■■□</span></div></div>
-      <div class="skill"><div class="top"><span>JavaScript</span><span class="pts">■■■□□</span></div></div>
-      <div class="skill"><div class="top"><span>Python</span><span class="pts">■■■□□</span></div></div>
-      <div class="skill"><div class="top"><span>Git &amp; GitHub</span><span class="pts">■■■□□</span></div></div>
+  <h2 class="sec-title reveal" data-i18n="nav.skills">Habilidades</h2>
+  <div class="soft-grid reveal">
+    <div class="win soft-item">
+      <span class="soft-icon">💡</span>
+      <div>
+        <h4 data-i18n="skill.s1.title">Responsabilidad real</h4>
+        <p data-i18n="skill.s1.desc">Gestioné la salud de toda una comunidad escolar — presión real, decisiones reales.</p>
+      </div>
     </div>
-    <div class="skill-col pxborder">
-      <h3>♥ HABILIDADES HUMANAS</h3>
-      <ul class="soft">
-        <li>Responsabilidad real — gestioné la salud de toda una comunidad escolar</li>
-        <li>Comunicación efectiva con personas de todas las edades</li>
-        <li>Trabajo bajo presión y toma de decisiones rápidas</li>
-        <li>Aprendizaje autodidacta constante</li>
-        <li>Empatía y trabajo en equipo</li>
-      </ul>
+    <div class="win soft-item">
+      <span class="soft-icon">🗣️</span>
+      <div>
+        <h4 data-i18n="skill.s2.title">Comunicación efectiva</h4>
+        <p data-i18n="skill.s2.desc">Experiencia comunicándome con personas de todas las edades y contextos.</p>
+      </div>
+    </div>
+    <div class="win soft-item">
+      <span class="soft-icon">⚡</span>
+      <div>
+        <h4 data-i18n="skill.s3.title">Trabajo bajo presión</h4>
+        <p data-i18n="skill.s3.desc">Toma de decisiones rápidas y eficaces en entornos de urgencia.</p>
+      </div>
+    </div>
+    <div class="win soft-item">
+      <span class="soft-icon">📖</span>
+      <div>
+        <h4 data-i18n="skill.s4.title">Aprendizaje autodidacta</h4>
+        <p data-i18n="skill.s4.desc">Python, JS, HTML y CSS aprendidos por cuenta propia, por pura pasión.</p>
+      </div>
+    </div>
+    <div class="win soft-item">
+      <span class="soft-icon">🤝</span>
+      <div>
+        <h4 data-i18n="skill.s5.title">Trabajo en equipo</h4>
+        <p data-i18n="skill.s5.desc">Colaboración y empatía como pilares en cualquier proyecto.</p>
+      </div>
+    </div>
+    <div class="win soft-item">
+      <span class="soft-icon">✨</span>
+      <div>
+        <h4 data-i18n="skill.s6.title">Curiosidad constante</h4>
+        <p data-i18n="skill.s6.desc">Siempre buscando aprender, explorar y mejorar. No hay reto demasiado grande.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============ CONTACTO ============ -->
 <section id="contacto">
-  <h2 class="sec-title">★ CONTACTO</h2>
-  <div class="contact-card pxborder">
-    <p>¿Quieres trabajar conmigo o simplemente saludar? ¡Hablemos! ✦</p>
-    <div class="contact-links">
-      <a class="btn primary" href="mailto:rivas.ahumada1509@gmail.com">✉ EMAIL</a>
-      <a class="btn ghost" href="https://github.com/Milkysturm" target="_blank" rel="noopener">⌨ GITHUB</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/olga-rivas-ahumada-b86403386/" target="_blank" rel="noopener">in LINKEDIN</a>
+  <h2 class="sec-title reveal" data-i18n="nav.contact">Contacto</h2>
+  <div class="win contact-card reveal">
+    <div class="win-bar">
+      <span class="win-title" data-i18n="contact.win">✦ ¡Hablemos!</span>
+      <div class="win-btns"><span>─</span><span>□</span><span>✕</span></div>
+    </div>
+    <div class="win-body" style="text-align:center;padding:32px">
+      <p style="font-size:17px;margin-bottom:28px;color:var(--text-dim)" data-i18n="contact.msg">
+        ¿Quieres trabajar conmigo o simplemente saludar? ✦
+      </p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:rivas.ahumada1509@gmail.com">✉ Email</a>
+        <a class="btn ghost" href="https://github.com/Milkysturm" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/olga-rivas-ahumada-b86403386/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
-   ♥ Iquique, Chile
-  <div class="pixel">© 2026 OLGA RIVAS AHUMADA— PRESS START ▸</div>
+  <span data-i18n="footer.made">Hecho con 🎀 y mucho café en Iquique, Chile</span>
+  <span class="cursive">© 2026 Milkysturm ✦</span>
 </footer>
 
 <script>
-// ===== Tema claro/oscuro (recuerda tu elección) =====
-const btn = document.getElementById('themeBtn');
-const root = document.documentElement;
-const saved = localStorage.getItem('tema');
-if(saved) root.dataset.theme = saved;
-updateBtn();
-btn.addEventListener('click', () => {
-  root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('tema', root.dataset.theme);
-  updateBtn();
-});
-function updateBtn(){
-  btn.textContent = root.dataset.theme === 'dark' ? '☀ LIGHT' : '☾ DARK';
-}
-
-// ===== Efecto de escritura =====
-const frases = [
-  'Desarrolladora Java & Python',
-  'Front-end: HTML · CSS · JS',
-  'De enfermera a programadora',
-  'Estudiante en Duoc UC ✦'
-];
-const typed = document.getElementById('typed');
-let fi = 0, ci = 0, borrando = false;
-(function tick(){
-  const f = frases[fi];
-  typed.textContent = f.slice(0, ci);
-  if(!borrando){
-    if(ci++ === f.length){ borrando = true; return setTimeout(tick, 1800); }
-  } else {
-    if(ci-- === 0){ borrando = false; fi = (fi+1) % frases.length; }
+/* ============================================================
+   TRADUCCIONES  ES / EN
+   ============================================================ */
+const T = {
+  es: {
+    'nav.about':      'Sobre mí',
+    'nav.projects':   'Proyectos',
+    'nav.skills':     'Habilidades',
+    'nav.contact':    'Contacto',
+    'hero.title':     'Portafolio',
+    'hero.badge':     'Analista Programador, Duoc UC',
+    'hero.cta1':      'Ver proyectos ✦',
+    'hero.cta2':      'Contacto',
+    'about.title':    'Sobre mí',
+    'about.p1':       'Soy <span class="about-hl">Olga Rivas Ahumada</span>, enfermera escolar en transición hacia el mundo de la tecnología. Actualmente estudio <span class="about-hl">Analista Programador Computacional en Duoc UC</span>, una decisión que nació de mi pasión por aprender y por los desafíos que ofrece el mundo IT.',
+    'about.p2':       'Manejo <span class="about-hl">Java</span> en mi formación académica y por iniciativa propia he aprendido <span class="about-hl">Python, JavaScript, HTML y CSS</span>, porque creo que el aprendizaje autodidacta es una de las mejores señales de compromiso con una carrera.',
+    'about.p3':       'Mi experiencia como enfermera escolar en el Colegio San Lorenzo de Tarapacá me dio algo que no se enseña en ningún aula: <span class="about-hl">responsabilidad real, comunicación efectiva y trabajo bajo presión</span>. Habilidades que hoy traigo conmigo al desarrollo.',
+    'tech.title':     'Tecnologías',
+    'proj.tour_app':  'Sistema en Java para gestionar tours mediante lectura de archivos y colecciones (ArrayList). Actividad de Desarrollo Orientado a Objetos I, Duoc UC.',
+    'proj.tour':      'Sistema en Java que modela personas de una agencia de turismo aplicando encapsulamiento, composición y herencia.',
+    'proj.gas':       'Sistema en Java para registrar y controlar el consumo de combustible.',
+    'proj.shop':      'App de escritorio con Java Swing: caja registradora para boutique de aromas. Los usuarios registran productos con su código.',
+    'proj.calc':      'Calculadora web con modo oscuro, animaciones y soporte de teclado — HTML, CSS y JS puro.',
+    'proj.lib':       'Sistema de gestión de préstamos de biblioteca con interfaz gráfica en Java Swing.',
+    'proj.roulette':  'Primer acercamiento a HTML, CSS y JS. Donde todo comenzó ✦',
+    'skill.s1.title': 'Responsabilidad real',
+    'skill.s1.desc':  'Gestioné la salud de toda una comunidad escolar — presión real, decisiones reales.',
+    'skill.s2.title': 'Comunicación efectiva',
+    'skill.s2.desc':  'Experiencia comunicándome con personas de todas las edades y contextos.',
+    'skill.s3.title': 'Trabajo bajo presión',
+    'skill.s3.desc':  'Toma de decisiones rápidas y eficaces en entornos de urgencia.',
+    'skill.s4.title': 'Aprendizaje autodidacta',
+    'skill.s4.desc':  'Python, JS, HTML y CSS aprendidos por cuenta propia, por pura pasión.',
+    'skill.s5.title': 'Trabajo en equipo',
+    'skill.s5.desc':  'Colaboración y empatía como pilares en cualquier proyecto.',
+    'skill.s6.title': 'Curiosidad constante',
+    'skill.s6.desc':  'Siempre buscando aprender, explorar y mejorar. No hay reto demasiado grande.',
+    'contact.win':    '✦ ¡Hablemos!',
+    'contact.msg':    '¿Quieres trabajar conmigo o simplemente saludar? ✦',
+    'footer.made':    'Hecho con 🎀 y mucho café en Iquique, Chile',
+  },
+  en: {
+    'nav.about':      'About me',
+    'nav.projects':   'Projects',
+    'nav.skills':     'Skills',
+    'nav.contact':    'Contact',
+    'hero.title':     'Portfolio',
+    'hero.badge':     'Computer Systems Analyst, Duoc UC',
+    'hero.cta1':      'View projects ✦',
+    'hero.cta2':      'Contact',
+    'about.title':    'About me',
+    'about.p1':       'I\'m <span class="about-hl">Olga Rivas Ahumada</span>, a school nurse transitioning into the world of technology. I\'m currently studying <span class="about-hl">Computer Systems Analysis at Duoc UC</span>, a decision born out of my passion for learning and the challenges the IT world offers.',
+    'about.p2':       'I work with <span class="about-hl">Java</span> in my academic training and have self-taught <span class="about-hl">Python, JavaScript, HTML and CSS</span>, because I believe self-directed learning is one of the strongest signs of commitment to a career.',
+    'about.p3':       'My experience as a school nurse at Colegio San Lorenzo de Tarapacá gave me something no classroom can teach: <span class="about-hl">real responsibility, effective communication, and working under pressure</span>. Skills I now bring to development.',
+    'tech.title':     'Technologies',
+    'proj.tour_app':  'Java system for managing tours via file reading and ArrayList collections. Object-Oriented Programming I activity, Duoc UC.',
+    'proj.tour':      'Java system modeling tourism agency staff with encapsulation, composition and inheritance.',
+    'proj.gas':       'Java system for recording and tracking fuel consumption.',
+    'proj.shop':      'Desktop app with Java Swing: a point-of-sale register for an aroma boutique. Users register products by code.',
+    'proj.calc':      'Web calculator with dark mode, animations and keyboard support — pure HTML, CSS & JS.',
+    'proj.lib':       'Library loan management system with a Java Swing graphical interface.',
+    'proj.roulette':  'First approach to HTML, CSS & JS. Where it all began ✦',
+    'skill.s1.title': 'Real responsibility',
+    'skill.s1.desc':  'I managed the health of an entire school community — real pressure, real decisions.',
+    'skill.s2.title': 'Effective communication',
+    'skill.s2.desc':  'Experience communicating with people of all ages and backgrounds.',
+    'skill.s3.title': 'Working under pressure',
+    'skill.s3.desc':  'Quick and effective decision-making in urgent environments.',
+    'skill.s4.title': 'Self-directed learning',
+    'skill.s4.desc':  'Python, JS, HTML & CSS learned on my own, driven by pure passion.',
+    'skill.s5.title': 'Teamwork',
+    'skill.s5.desc':  'Collaboration and empathy as cornerstones of any project.',
+    'skill.s6.title': 'Constant curiosity',
+    'skill.s6.desc':  'Always looking to learn, explore and improve. No challenge is too big.',
+    'contact.win':    '✦ Let\'s talk!',
+    'contact.msg':    'Want to work with me or just say hi? ✦',
+    'footer.made':    'Made with 🎀 and lots of coffee in Iquique, Chile',
   }
-  setTimeout(tick, borrando ? 35 : 75);
+};
+
+/* ============================================================
+   IDIOMA
+   ============================================================ */
+let lang = localStorage.getItem('lang') || 'es';
+const langBtn = document.getElementById('langBtn');
+
+function applyLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  localStorage.setItem('lang', l);
+  langBtn.textContent = l === 'es' ? 'EN' : 'ES';
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key = el.dataset.i18n;
+    if(T[l][key] !== undefined) el.innerHTML = T[l][key];
+  });
+}
+langBtn.addEventListener('click', ()=> applyLang(lang === 'es' ? 'en' : 'es'));
+applyLang(lang); // aplica al cargar
+
+/* ============================================================
+   TEMA CLARO / OSCURO
+   ============================================================ */
+let theme = localStorage.getItem('theme') || 'light';
+const themeBtn = document.getElementById('themeBtn');
+
+function applyTheme(t){
+  theme = t;
+  document.documentElement.dataset.theme = t;
+  localStorage.setItem('theme', t);
+  themeBtn.textContent = t === 'dark' ? '☀️' : '🌙';
+}
+themeBtn.addEventListener('click', ()=> applyTheme(theme === 'dark' ? 'light' : 'dark'));
+applyTheme(theme);
+
+/* ============================================================
+   ESTRELLAS DE LUZ orbitales alrededor del avatar
+   ============================================================ */
+(function(){
+  const orbit = document.getElementById('starOrbit');
+  if(!orbit) return;
+  // el contenedor .star-orbit tiene inset:-36px en un ring de 230px
+  // así que su tamaño es 230+72=302px; el centro está en 151,151
+  const cx = 151, cy = 151, r = 135;
+  const stars   = ['✦','✧','★','✦','✧','✦','★','✧','✦','✧','★','✦'];
+  const sizes   = [18, 14, 20, 12, 16, 22, 14, 18, 12, 20, 16, 14];
+  const delays  = [0, 0.5, 1, 1.5, 2, 0.3, 0.8, 1.3, 1.8, 0.6, 1.1, 2.2];
+  const durations=[2, 2.4, 1.8, 2.6, 2.2, 1.9, 2.5, 2.1, 2.3, 1.7, 2.8, 2.0];
+  const colors  = ['#ff80d0','#e040a0','#ffb3e6','#c050a0','#ff99dd','#d060b0',
+                   '#ffccee','#e878c4','#f9b8e8','#c878d8','#ffaadd','#d480c0'];
+  const n = stars.length;
+
+  orbit.style.cssText = `
+    position:absolute;inset:-36px;width:302px;height:302px;
+    border-radius:50%;
+    animation:orbit 18s linear infinite;
+  `;
+
+  for(let i=0;i<n;i++){
+    const angle = (i/n)*Math.PI*2 - Math.PI/2;
+    const x = cx + r*Math.cos(angle);
+    const y = cy + r*Math.sin(angle);
+    const el = document.createElement('span');
+    el.textContent = stars[i];
+    el.style.cssText = `
+      position:absolute;
+      left:${x}px;top:${y}px;
+      transform:translate(-50%,-50%);
+      font-size:${sizes[i]}px;
+      color:${colors[i]};
+      animation:starPulse ${durations[i]}s ease-in-out ${delays[i]}s infinite;
+      pointer-events:none;
+      line-height:1;
+    `;
+    orbit.appendChild(el);
+  }
 })();
 
-// ===== Animaciones al hacer scroll =====
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.classList.add('show');
-      e.target.querySelectorAll('.fill').forEach(f => f.style.width = f.dataset.w);
-      io.unobserve(e.target);
-    }
-  });
-}, {threshold:.15});
-document.querySelectorAll('.proj').forEach(p => io.observe(p));
-document.querySelectorAll('.lifebar').forEach(l => io.observe(l));
+/* ============================================================
+   REVEAL AL SCROLL
+   ============================================================ */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
